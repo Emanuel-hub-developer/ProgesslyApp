@@ -37,6 +37,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            button5 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -55,9 +56,9 @@
             button1.BackColor = SystemColors.GradientActiveCaption;
             button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Algerian", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(124, 149);
+            button1.Location = new Point(142, 140);
             button1.Name = "button1";
-            button1.Size = new Size(315, 59);
+            button1.Size = new Size(281, 50);
             button1.TabIndex = 1;
             button1.Text = "Gestionar Proyectos";
             button1.UseVisualStyleBackColor = false;
@@ -68,9 +69,9 @@
             button2.BackColor = SystemColors.GradientActiveCaption;
             button2.FlatStyle = FlatStyle.Popup;
             button2.Font = new Font("Algerian", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(124, 234);
+            button2.Location = new Point(142, 216);
             button2.Name = "button2";
-            button2.Size = new Size(315, 62);
+            button2.Size = new Size(281, 43);
             button2.TabIndex = 2;
             button2.Text = "Gestionar Tareas";
             button2.UseVisualStyleBackColor = false;
@@ -82,9 +83,9 @@
             button3.FlatStyle = FlatStyle.Popup;
             button3.Font = new Font("Algerian", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.Black;
-            button3.Location = new Point(124, 317);
+            button3.Location = new Point(142, 277);
             button3.Name = "button3";
-            button3.Size = new Size(315, 60);
+            button3.Size = new Size(281, 57);
             button3.TabIndex = 3;
             button3.Text = "Gestionar Responsables";
             button3.UseVisualStyleBackColor = false;
@@ -96,9 +97,9 @@
             button4.FlatStyle = FlatStyle.Popup;
             button4.Font = new Font("Algerian", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button4.ForeColor = Color.Black;
-            button4.Location = new Point(122, 396);
+            button4.Location = new Point(142, 419);
             button4.Name = "button4";
-            button4.Size = new Size(313, 68);
+            button4.Size = new Size(281, 46);
             button4.TabIndex = 4;
             button4.Text = "Salir";
             button4.UseVisualStyleBackColor = false;
@@ -109,7 +110,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.LightBlue;
             label1.Font = new Font("Algerian", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(238, 102);
+            label1.Location = new Point(244, 84);
             label1.Name = "label1";
             label1.Size = new Size(96, 35);
             label1.TabIndex = 5;
@@ -129,19 +130,35 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.BackColor = Color.SandyBrown;
+            label3.BackColor = SystemColors.MenuHighlight;
             label3.Font = new Font("Segoe UI Semibold", 36F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label3.Location = new Point(254, 0);
+            label3.ForeColor = SystemColors.ButtonHighlight;
+            label3.Location = new Point(258, 0);
             label3.Name = "label3";
             label3.Size = new Size(853, 65);
             label3.TabIndex = 7;
             label3.Text = "SISTEMA DE GESTIÓN DE PROYECTOS";
             // 
-            // Form1
+            // button5
+            // 
+            button5.BackColor = SystemColors.GradientActiveCaption;
+            button5.FlatStyle = FlatStyle.Popup;
+            button5.Font = new Font("Algerian", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button5.ForeColor = Color.Black;
+            button5.Location = new Point(142, 351);
+            button5.Name = "button5";
+            button5.Size = new Size(281, 46);
+            button5.TabIndex = 8;
+            button5.Text = "Avances ";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
+            // 
+            // ProgesslyAppMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1325, 629);
+            Controls.Add(button5);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -150,8 +167,10 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(pictureBox1);
-            Name = "Progressly";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "ProgesslyAppMenu";
             Text = "ProgresslyApp";
+            Load += ProgesslyAppMenu_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -167,5 +186,6 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Button button5;
     }
 }
