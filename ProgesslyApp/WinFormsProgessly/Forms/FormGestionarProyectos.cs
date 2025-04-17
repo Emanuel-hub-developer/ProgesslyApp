@@ -42,7 +42,7 @@ namespace WinFormsProgessly
 
         private void txtNameProject_TextChanged(object sender, EventArgs e)
         {
-            HelperValidator.ValidateCampWithSpaces(txtNameProject, errorProvider1,button1,button2);
+            HelperValidator.ValidateCampWithSpaces(txtNameProject, errorProvider1, button1, button2);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -69,7 +69,22 @@ namespace WinFormsProgessly
 
         private void textIdResponsable_TextChanged(object sender, EventArgs e)
         {
-            HelperValidator.ValidateOnlyNumbers(textIdResponsable, errorProvider1,button1,button2);
+            HelperValidator.ValidateOnlyNumbers(textIdResponsable, errorProvider1, button1, button2);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

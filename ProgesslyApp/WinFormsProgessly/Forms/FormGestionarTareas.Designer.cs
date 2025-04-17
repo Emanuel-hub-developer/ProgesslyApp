@@ -47,6 +47,10 @@
             label6 = new Label();
             comboBox1 = new ComboBox();
             errorProvider1 = new ErrorProvider(components);
+            label7 = new Label();
+            maskedTextBox1 = new MaskedTextBox();
+            maskedTextBox3 = new MaskedTextBox();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
@@ -107,7 +111,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(64, 221);
+            dataGridView1.Location = new Point(70, 200);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(1013, 378);
             dataGridView1.TabIndex = 17;
@@ -116,7 +120,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(130, 107);
+            label2.Location = new Point(70, 107);
             label2.Name = "label2";
             label2.Size = new Size(112, 32);
             label2.TabIndex = 18;
@@ -126,7 +130,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(346, 107);
+            label3.Location = new Point(255, 107);
             label3.Name = "label3";
             label3.Size = new Size(161, 32);
             label3.TabIndex = 19;
@@ -136,7 +140,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(589, 107);
+            label4.Location = new Point(457, 107);
             label4.Name = "label4";
             label4.Size = new Size(158, 32);
             label4.TabIndex = 20;
@@ -145,17 +149,17 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(807, 107);
+            label5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(1020, 109);
             label5.Name = "label5";
-            label5.Size = new Size(197, 32);
+            label5.Size = new Size(177, 30);
             label5.TabIndex = 21;
             label5.Text = "ID RESPONSABLE";
             label5.Click += label5_Click;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(109, 142);
+            textBox1.Location = new Point(40, 142);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(169, 23);
             textBox1.TabIndex = 22;
@@ -163,23 +167,24 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(338, 142);
+            textBox2.Location = new Point(255, 142);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(169, 23);
             textBox2.TabIndex = 23;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(589, 142);
+            textBox3.Location = new Point(479, 142);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(169, 23);
+            textBox3.Size = new Size(120, 23);
             textBox3.TabIndex = 24;
+            textBox3.TextChanged += textBox3_TextChanged;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(816, 142);
+            textBox4.Location = new Point(1046, 144);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(188, 23);
+            textBox4.Size = new Size(119, 23);
             textBox4.TabIndex = 25;
             textBox4.TextChanged += textBox4_TextChanged;
             // 
@@ -187,7 +192,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(1061, 107);
+            label6.Location = new Point(1203, 109);
             label6.Name = "label6";
             label6.Size = new Size(100, 32);
             label6.TabIndex = 26;
@@ -197,14 +202,53 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(1050, 142);
+            comboBox1.Items.AddRange(new object[] { "Pendiente", "En Progreso", "Completada" });
+            comboBox1.Location = new Point(1200, 142);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
+            comboBox1.Size = new Size(100, 23);
             comboBox1.TabIndex = 27;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // errorProvider1
             // 
             errorProvider1.ContainerControl = this;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(621, 107);
+            label7.Name = "label7";
+            label7.Size = new Size(205, 32);
+            label7.TabIndex = 28;
+            label7.Text = "FECHA CREACION";
+            label7.Click += label7_Click;
+            // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Location = new Point(640, 142);
+            maskedTextBox1.Mask = "00-0-0000";
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(156, 23);
+            maskedTextBox1.TabIndex = 32;
+            // 
+            // maskedTextBox3
+            // 
+            maskedTextBox3.Location = new Point(861, 144);
+            maskedTextBox3.Mask = "00-0-0000";
+            maskedTextBox3.Name = "maskedTextBox3";
+            maskedTextBox3.Size = new Size(124, 23);
+            maskedTextBox3.TabIndex = 34;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(832, 109);
+            label8.Name = "label8";
+            label8.Size = new Size(182, 32);
+            label8.TabIndex = 35;
+            label8.Text = "FECHA ENTREG.";
             // 
             // FormGestionarTareas
             // 
@@ -212,6 +256,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PowderBlue;
             ClientSize = new Size(1315, 659);
+            Controls.Add(label8);
+            Controls.Add(maskedTextBox3);
+            Controls.Add(maskedTextBox1);
+            Controls.Add(label7);
             Controls.Add(comboBox1);
             Controls.Add(label6);
             Controls.Add(textBox4);
@@ -256,5 +304,9 @@
         private Label label6;
         private ComboBox comboBox1;
         private ErrorProvider errorProvider1;
+        private Label label7;
+        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox maskedTextBox3;
+        private Label label8;
     }
 }

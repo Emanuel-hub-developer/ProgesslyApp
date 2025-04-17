@@ -37,8 +37,6 @@
             label5 = new Label();
             txtNameProject = new TextBox();
             txtDescription = new TextBox();
-            txtInitialDate = new TextBox();
-            txtEndDate = new TextBox();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -49,6 +47,8 @@
             comboBox1 = new ComboBox();
             label7 = new Label();
             textIdResponsable = new TextBox();
+            maskedTextBox1 = new MaskedTextBox();
+            maskedTextBox3 = new MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
@@ -118,24 +118,10 @@
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(289, 141);
+            txtDescription.Location = new Point(280, 141);
             txtDescription.Name = "txtDescription";
             txtDescription.Size = new Size(250, 23);
             txtDescription.TabIndex = 6;
-            // 
-            // txtInitialDate
-            // 
-            txtInitialDate.Location = new Point(572, 141);
-            txtInitialDate.Name = "txtInitialDate";
-            txtInitialDate.Size = new Size(157, 23);
-            txtInitialDate.TabIndex = 7;
-            // 
-            // txtEndDate
-            // 
-            txtEndDate.Location = new Point(790, 141);
-            txtEndDate.Name = "txtEndDate";
-            txtEndDate.Size = new Size(160, 23);
-            txtEndDate.TabIndex = 8;
             // 
             // button1
             // 
@@ -171,10 +157,11 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(24, 195);
+            dataGridView1.Location = new Point(47, 184);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(1053, 364);
             dataGridView1.TabIndex = 12;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // errorProvider1
             // 
@@ -204,10 +191,12 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Pendiente", "En Progreso", "Finalizado" });
             comboBox1.Location = new Point(1191, 141);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(121, 23);
             comboBox1.TabIndex = 28;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // label7
             // 
@@ -228,12 +217,31 @@
             textIdResponsable.TabIndex = 30;
             textIdResponsable.TextChanged += textIdResponsable_TextChanged;
             // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Location = new Point(572, 139);
+            maskedTextBox1.Mask = "00-0-0000";
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(156, 23);
+            maskedTextBox1.TabIndex = 31;
+            maskedTextBox1.MaskInputRejected += maskedTextBox1_MaskInputRejected;
+            // 
+            // maskedTextBox3
+            // 
+            maskedTextBox3.Location = new Point(769, 141);
+            maskedTextBox3.Mask = "00-0-0000";
+            maskedTextBox3.Name = "maskedTextBox3";
+            maskedTextBox3.Size = new Size(187, 23);
+            maskedTextBox3.TabIndex = 33;
+            // 
             // GestionarProyectos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PowderBlue;
             ClientSize = new Size(1336, 665);
+            Controls.Add(maskedTextBox3);
+            Controls.Add(maskedTextBox1);
             Controls.Add(textIdResponsable);
             Controls.Add(label7);
             Controls.Add(comboBox1);
@@ -243,8 +251,6 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(txtEndDate);
-            Controls.Add(txtInitialDate);
             Controls.Add(txtDescription);
             Controls.Add(txtNameProject);
             Controls.Add(label5);
@@ -271,8 +277,6 @@
         private Label label5;
         private TextBox txtNameProject;
         private TextBox txtDescription;
-        private TextBox txtInitialDate;
-        private TextBox txtEndDate;
         private Button button1;
         private Button button2;
         private Button button3;
@@ -283,5 +287,7 @@
         private ComboBox comboBox1;
         private Label label7;
         private TextBox textIdResponsable;
+        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox maskedTextBox3;
     }
 }

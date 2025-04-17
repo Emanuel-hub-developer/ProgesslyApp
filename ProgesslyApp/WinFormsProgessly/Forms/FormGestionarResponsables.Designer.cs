@@ -40,13 +40,13 @@
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
-            textBox4 = new TextBox();
             textBox5 = new TextBox();
             dataGridView1 = new DataGridView();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
             errorProvider1 = new ErrorProvider(components);
+            maskedTextBox1 = new MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
@@ -102,11 +102,11 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(535, 128);
+            label4.Location = new Point(551, 128);
             label4.Name = "label4";
-            label4.Size = new Size(104, 32);
+            label4.Size = new Size(80, 32);
             label4.TabIndex = 4;
-            label4.Text = "CORREO";
+            label4.Text = "EMAIL";
             label4.Click += label4_Click;
             // 
             // label5
@@ -148,17 +148,10 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(517, 178);
+            textBox3.Location = new Point(509, 178);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(159, 29);
             textBox3.TabIndex = 9;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(715, 178);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(159, 29);
-            textBox4.TabIndex = 10;
             // 
             // textBox5
             // 
@@ -210,18 +203,26 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Location = new Point(717, 178);
+            maskedTextBox1.Mask = "000-000-0000";
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(160, 29);
+            maskedTextBox1.TabIndex = 16;
+            // 
             // FormGestionarResponsables
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PowderBlue;
             ClientSize = new Size(1698, 931);
+            Controls.Add(maskedTextBox1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(textBox5);
-            Controls.Add(textBox4);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
@@ -255,12 +256,12 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private TextBox textBox3;
-        private TextBox textBox4;
         private TextBox textBox5;
         private DataGridView dataGridView1;
         private Button button1;
         private Button button2;
         private Button button3;
         private ErrorProvider errorProvider1;
+        private MaskedTextBox maskedTextBox1;
     }
 }

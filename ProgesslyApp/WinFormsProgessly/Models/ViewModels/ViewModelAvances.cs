@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WinFormsProgessly
 {
-    public partial class FormViewModelAvances : Form
+    public partial class ViewModelAvances : Form
     {
-        public FormViewModelAvances()
+        public ViewModelAvances()
         {
             InitializeComponent();
         }

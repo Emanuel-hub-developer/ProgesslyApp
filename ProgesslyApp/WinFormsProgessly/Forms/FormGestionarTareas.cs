@@ -44,5 +44,20 @@ namespace WinFormsProgessly
         {
             HelperValidator.ValidateOnlyNumbers(textBox4, errorProvider1, button1, button2);
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            HelperValidator.ValidateOnlyNumbers(textBox3, errorProvider1, button1, button2);
+        }
     }
 }

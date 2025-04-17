@@ -1,6 +1,6 @@
 ﻿namespace WinFormsProgessly
 {
-    partial class FormViewModelAvances
+    partial class ViewModelAvances
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormViewModelAvances));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewModelAvances));
             label1 = new Label();
             dataGridView1 = new DataGridView();
             buttnVolver = new Button();

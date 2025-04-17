@@ -52,7 +52,7 @@ namespace WinFormsProgessly
 
         private void button5_Click(object sender, EventArgs e)
         {
-            FormViewModelAvances frm = new FormViewModelAvances();
+            ViewModelAvances frm = new ViewModelAvances();
 
             frm.Show();
 
