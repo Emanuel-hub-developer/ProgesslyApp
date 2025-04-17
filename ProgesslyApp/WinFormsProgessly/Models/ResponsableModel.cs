@@ -23,10 +23,9 @@ namespace WinFormsProgessly.Entities
 
         public string Telephone { get; set; }
 
-        [ForeignKey("Proyecto")]
-        public int? idProject { get; set; }
-        public ProjectModel Project { get; set; }
-
+        //[ForeignKey("Proyecto")]
+        //public int? idProject { get; set; }  Esto No va xd
+        //public ProjectModel Project { get; set; }
 
 
     }

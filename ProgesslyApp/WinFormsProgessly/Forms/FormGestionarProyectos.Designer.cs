@@ -44,11 +44,11 @@
             errorProvider1 = new ErrorProvider(components);
             buttnVolver = new Button();
             label6 = new Label();
-            comboBox1 = new ComboBox();
+            StatusBox = new ComboBox();
             label7 = new Label();
             textIdResponsable = new TextBox();
-            maskedTextBox1 = new MaskedTextBox();
-            maskedTextBox3 = new MaskedTextBox();
+            dateTimeStarDate = new DateTimePicker();
+            dateTimeEndDate = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
@@ -101,7 +101,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(745, 106);
+            label5.Location = new Point(754, 106);
             label5.Name = "label5";
             label5.Size = new Size(253, 30);
             label5.TabIndex = 4;
@@ -122,6 +122,7 @@
             txtDescription.Name = "txtDescription";
             txtDescription.Size = new Size(250, 23);
             txtDescription.TabIndex = 6;
+            txtDescription.TextChanged += txtDescription_TextChanged;
             // 
             // button1
             // 
@@ -143,6 +144,7 @@
             button2.TabIndex = 10;
             button2.Text = "Actualizar";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -153,6 +155,7 @@
             button3.TabIndex = 11;
             button3.Text = "Eliminar ";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // dataGridView1
             // 
@@ -161,7 +164,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(1053, 364);
             dataGridView1.TabIndex = 12;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.CellContentClick += dataGridView1_CellClick;
             // 
             // errorProvider1
             // 
@@ -188,15 +191,15 @@
             label6.TabIndex = 27;
             label6.Text = "ESTADO";
             // 
-            // comboBox1
+            // StatusBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Pendiente", "En Progreso", "Finalizado" });
-            comboBox1.Location = new Point(1191, 141);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 28;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            StatusBox.FormattingEnabled = true;
+            StatusBox.Items.AddRange(new object[] { "Pendiente", "EnProgreso", "Finalizado" });
+            StatusBox.Location = new Point(1191, 141);
+            StatusBox.Name = "StatusBox";
+            StatusBox.Size = new Size(121, 23);
+            StatusBox.TabIndex = 28;
+            StatusBox.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // label7
             // 
@@ -217,22 +220,20 @@
             textIdResponsable.TabIndex = 30;
             textIdResponsable.TextChanged += textIdResponsable_TextChanged;
             // 
-            // maskedTextBox1
+            // dateTimeStarDate
             // 
-            maskedTextBox1.Location = new Point(572, 139);
-            maskedTextBox1.Mask = "00-0-0000";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(156, 23);
-            maskedTextBox1.TabIndex = 31;
-            maskedTextBox1.MaskInputRejected += maskedTextBox1_MaskInputRejected;
+            dateTimeStarDate.Location = new Point(562, 139);
+            dateTimeStarDate.Name = "dateTimeStarDate";
+            dateTimeStarDate.Size = new Size(182, 23);
+            dateTimeStarDate.TabIndex = 38;
+            dateTimeStarDate.ValueChanged += dateTimeStarDate_ValueChanged;
             // 
-            // maskedTextBox3
+            // dateTimeEndDate
             // 
-            maskedTextBox3.Location = new Point(769, 141);
-            maskedTextBox3.Mask = "00-0-0000";
-            maskedTextBox3.Name = "maskedTextBox3";
-            maskedTextBox3.Size = new Size(187, 23);
-            maskedTextBox3.TabIndex = 33;
+            dateTimeEndDate.Location = new Point(786, 138);
+            dateTimeEndDate.Name = "dateTimeEndDate";
+            dateTimeEndDate.Size = new Size(182, 23);
+            dateTimeEndDate.TabIndex = 39;
             // 
             // GestionarProyectos
             // 
@@ -240,11 +241,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PowderBlue;
             ClientSize = new Size(1336, 665);
-            Controls.Add(maskedTextBox3);
-            Controls.Add(maskedTextBox1);
+            Controls.Add(dateTimeEndDate);
+            Controls.Add(dateTimeStarDate);
             Controls.Add(textIdResponsable);
             Controls.Add(label7);
-            Controls.Add(comboBox1);
+            Controls.Add(StatusBox);
             Controls.Add(label6);
             Controls.Add(buttnVolver);
             Controls.Add(dataGridView1);
@@ -284,10 +285,10 @@
         private ErrorProvider errorProvider1;
         private Button buttnVolver;
         private Label label6;
-        private ComboBox comboBox1;
+        private ComboBox StatusBox;
         private Label label7;
         private TextBox textIdResponsable;
-        private MaskedTextBox maskedTextBox1;
-        private MaskedTextBox maskedTextBox3;
+        private DateTimePicker dateTimeEndDate;
+        private DateTimePicker dateTimeStarDate;
     }
 }

@@ -7,15 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsProgessly.Data;
+using WinFormsProgessly.Entities;
 using WinFormsProgessly.Helpers;
+using WinFormsProgessly.Services;
 
 namespace WinFormsProgessly
 {
     public partial class GestionarProyectos : Form
     {
+        private ProjectService _projectService = new ProjectService();
+        private ProgesslyContext _context;
         public GestionarProyectos()
         {
             InitializeComponent();
+            LoadProjectFromDb();
+        }
+
+        private void LoadProjectFromDb()
+        {
+            var project = _projectService.GetAllProjectsFromDb();
+            dataGridView1.DataSource = project;
+
+            dataGridView1.Columns["Responsable"].Visible = false;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,6 +55,7 @@ namespace WinFormsProgessly
 
 
 
+
         private void txtNameProject_TextChanged(object sender, EventArgs e)
         {
             HelperValidator.ValidateCampWithSpaces(txtNameProject, errorProvider1, button1, button2);
@@ -54,7 +70,21 @@ namespace WinFormsProgessly
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            var nuevo = new ProjectModel
+            {
+                Name = txtNameProject.Text,
+                Description = txtDescription.Text,
+                StartDate = dateTimeStarDate.Value,
+                EndDate = dateTimeEndDate.Value,
+                idResponsable = int.Parse(textIdResponsable.Text),
+                Status = (StatusProject)Enum.Parse(typeof(StatusProject), StatusBox.SelectedItem.ToString())
+            };
 
+            _projectService.AddProject(nuevo);
+
+            MessageBox.Show("Proyecto Creado Exitosamente!");
+
+            LoadProjectFromDb();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -86,5 +116,79 @@ namespace WinFormsProgessly
         {
 
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (dataGridView1.CurrentRow != null)
+            {
+
+                var project = (ProjectModel)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+
+                txtNameProject.Text = project.Name;
+                txtDescription.Text = project.Description;
+                textIdResponsable.Text = project.idResponsable.ToString();
+                dateTimeStarDate.Value = project.StartDate;
+                dateTimeEndDate.Value = project.EndDate;
+                StatusBox.SelectedItem = project.Status.ToString();
+
+                LoadProjectFromDb();
+            }
+            dataGridView1.ClearSelection();
+            dataGridView1.Rows[e.RowIndex].Selected = true;
+        }
+
+        private void txtDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimeStarDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var project = (ProjectModel)dataGridView1.CurrentRow.DataBoundItem;
+
+            project.Name = txtNameProject.Text;
+            project.Description = txtDescription.Text;
+            project.StartDate = dateTimeStarDate.Value;
+            project.EndDate = dateTimeEndDate.Value;
+            project.idResponsable = int.Parse(textIdResponsable.Text);
+
+            project.Status = (StatusProject)Enum.Parse(typeof(StatusProject), StatusBox.SelectedItem.ToString());
+
+            _projectService.UpdateProject(project);
+
+            MessageBox.Show("Proyecto actualizado exitosamente!");
+
+            LoadProjectFromDb();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+
+                var project = (ProjectModel)dataGridView1.CurrentRow.DataBoundItem;
+
+
+                var confirm = MessageBox.Show("¿Estas seguro de que deseas eliminar este proyecto?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (confirm == DialogResult.Yes)
+                {
+                    _projectService.DeleteProject(project.Id);
+                    LoadProjectFromDb();
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un projecto para eliminar.");
+            }
+        }
+
+       
     }
 }

@@ -35,12 +35,10 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            label5 = new Label();
             label6 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox5 = new TextBox();
+            txtName = new TextBox();
+            txtLastname = new TextBox();
+            txtEmail = new TextBox();
             dataGridView1 = new DataGridView();
             button1 = new Button();
             button2 = new Button();
@@ -91,7 +89,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(349, 128);
+            label3.Location = new Point(371, 128);
             label3.Name = "label3";
             label3.Size = new Size(117, 32);
             label3.TabIndex = 3;
@@ -102,71 +100,55 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(551, 128);
+            label4.Location = new Point(583, 128);
             label4.Name = "label4";
             label4.Size = new Size(80, 32);
             label4.TabIndex = 4;
             label4.Text = "EMAIL";
             label4.Click += label4_Click;
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(932, 128);
-            label5.Name = "label5";
-            label5.Size = new Size(158, 32);
-            label5.TabIndex = 5;
-            label5.Text = "ID PROYECTO";
-            label5.Click += label5_Click;
-            // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(732, 128);
+            label6.Location = new Point(788, 128);
             label6.Name = "label6";
             label6.Size = new Size(128, 32);
             label6.TabIndex = 6;
             label6.Text = "TELEFONO";
             // 
-            // textBox1
+            // txtName
             // 
-            textBox1.Location = new Point(124, 178);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(159, 29);
-            textBox1.TabIndex = 7;
-            textBox1.TextChanged += textBox1_TextChanged;
+            txtName.Location = new Point(124, 178);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(159, 29);
+            txtName.TabIndex = 7;
+            txtName.TextChanged += textBox1_TextChanged;
             // 
-            // textBox2
+            // txtLastname
             // 
-            textBox2.Location = new Point(329, 178);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(159, 29);
-            textBox2.TabIndex = 8;
-            textBox2.TextChanged += textBox2_TextChanged;
+            txtLastname.Location = new Point(350, 178);
+            txtLastname.Name = "txtLastname";
+            txtLastname.Size = new Size(159, 29);
+            txtLastname.TabIndex = 8;
+            txtLastname.TextChanged += textBox2_TextChanged;
             // 
-            // textBox3
+            // txtEmail
             // 
-            textBox3.Location = new Point(509, 178);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(159, 29);
-            textBox3.TabIndex = 9;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(931, 178);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(159, 29);
-            textBox5.TabIndex = 11;
+            txtEmail.Location = new Point(542, 178);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(159, 29);
+            txtEmail.TabIndex = 9;
+            txtEmail.TextChanged += txtEmail_TextChanged;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(65, 231);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1018, 353);
+            dataGridView1.Size = new Size(1037, 353);
             dataGridView1.TabIndex = 12;
+            dataGridView1.CellContentClick += dataGridView1_CellClick;
             // 
             // button1
             // 
@@ -177,6 +159,7 @@
             button1.TabIndex = 13;
             button1.Text = "Crear ";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -198,6 +181,7 @@
             button3.TabIndex = 15;
             button3.Text = "Eliminar ";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click_1;
             // 
             // errorProvider1
             // 
@@ -205,11 +189,12 @@
             // 
             // maskedTextBox1
             // 
-            maskedTextBox1.Location = new Point(717, 178);
+            maskedTextBox1.Location = new Point(767, 178);
             maskedTextBox1.Mask = "000-000-0000";
             maskedTextBox1.Name = "maskedTextBox1";
             maskedTextBox1.Size = new Size(160, 29);
             maskedTextBox1.TabIndex = 16;
+            maskedTextBox1.MaskInputRejected += maskedTextBox1_MaskInputRejected;
             // 
             // FormGestionarResponsables
             // 
@@ -222,12 +207,10 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
-            Controls.Add(textBox5);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtEmail);
+            Controls.Add(txtLastname);
+            Controls.Add(txtName);
             Controls.Add(label6);
-            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -251,12 +234,10 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private Label label5;
         private Label label6;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox5;
+        private TextBox txtName;
+        private TextBox txtLastname;
+        private TextBox txtEmail;
         private DataGridView dataGridView1;
         private Button button1;
         private Button button2;

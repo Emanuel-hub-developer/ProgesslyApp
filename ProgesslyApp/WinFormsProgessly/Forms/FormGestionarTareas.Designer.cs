@@ -40,17 +40,17 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
+            txtNameBox = new TextBox();
+            txtDescriptionBox = new TextBox();
+            txtIdProyectoBox = new TextBox();
+            txtIdResponsableBox = new TextBox();
             label6 = new Label();
-            comboBox1 = new ComboBox();
+            StatusBox = new ComboBox();
             errorProvider1 = new ErrorProvider(components);
             label7 = new Label();
-            maskedTextBox1 = new MaskedTextBox();
-            maskedTextBox3 = new MaskedTextBox();
             label8 = new Label();
+            dateTimeStarDate = new DateTimePicker();
+            dateTimeDeliveryDate = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
@@ -87,6 +87,7 @@
             button1.TabIndex = 14;
             button1.Text = "Crear ";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -97,6 +98,7 @@
             button2.TabIndex = 15;
             button2.Text = "Actualizar";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -107,6 +109,7 @@
             button3.TabIndex = 16;
             button3.Text = "Eliminar ";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // dataGridView1
             // 
@@ -115,6 +118,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(1013, 378);
             dataGridView1.TabIndex = 17;
+            dataGridView1.CellContentClick += dataGridView1_CellClick;
             // 
             // label2
             // 
@@ -157,36 +161,37 @@
             label5.Text = "ID RESPONSABLE";
             label5.Click += label5_Click;
             // 
-            // textBox1
+            // txtNameBox
             // 
-            textBox1.Location = new Point(40, 142);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(169, 23);
-            textBox1.TabIndex = 22;
-            textBox1.TextChanged += textBox1_TextChanged;
+            txtNameBox.Location = new Point(40, 142);
+            txtNameBox.Name = "txtNameBox";
+            txtNameBox.Size = new Size(169, 23);
+            txtNameBox.TabIndex = 22;
+            txtNameBox.TextChanged += textBox1_TextChanged;
             // 
-            // textBox2
+            // txtDescriptionBox
             // 
-            textBox2.Location = new Point(255, 142);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(169, 23);
-            textBox2.TabIndex = 23;
+            txtDescriptionBox.Location = new Point(255, 142);
+            txtDescriptionBox.Name = "txtDescriptionBox";
+            txtDescriptionBox.Size = new Size(169, 23);
+            txtDescriptionBox.TabIndex = 23;
+            txtDescriptionBox.TextChanged += textDescriptionBox_TextChanged;
             // 
-            // textBox3
+            // txtIdProyectoBox
             // 
-            textBox3.Location = new Point(479, 142);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(120, 23);
-            textBox3.TabIndex = 24;
-            textBox3.TextChanged += textBox3_TextChanged;
+            txtIdProyectoBox.Location = new Point(479, 142);
+            txtIdProyectoBox.Name = "txtIdProyectoBox";
+            txtIdProyectoBox.Size = new Size(120, 23);
+            txtIdProyectoBox.TabIndex = 24;
+            txtIdProyectoBox.TextChanged += textBox3_TextChanged;
             // 
-            // textBox4
+            // txtIdResponsableBox
             // 
-            textBox4.Location = new Point(1046, 144);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(119, 23);
-            textBox4.TabIndex = 25;
-            textBox4.TextChanged += textBox4_TextChanged;
+            txtIdResponsableBox.Location = new Point(1046, 144);
+            txtIdResponsableBox.Name = "txtIdResponsableBox";
+            txtIdResponsableBox.Size = new Size(119, 23);
+            txtIdResponsableBox.TabIndex = 25;
+            txtIdResponsableBox.TextChanged += textBox4_TextChanged;
             // 
             // label6
             // 
@@ -199,15 +204,15 @@
             label6.Text = "ESTADO";
             label6.Click += label6_Click;
             // 
-            // comboBox1
+            // StatusBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Pendiente", "En Progreso", "Completada" });
-            comboBox1.Location = new Point(1200, 142);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(100, 23);
-            comboBox1.TabIndex = 27;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            StatusBox.FormattingEnabled = true;
+            StatusBox.Items.AddRange(new object[] { "Pendiente", "EnProgreso", "Completada" });
+            StatusBox.Location = new Point(1200, 142);
+            StatusBox.Name = "StatusBox";
+            StatusBox.Size = new Size(100, 23);
+            StatusBox.TabIndex = 27;
+            StatusBox.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // errorProvider1
             // 
@@ -224,22 +229,6 @@
             label7.Text = "FECHA CREACION";
             label7.Click += label7_Click;
             // 
-            // maskedTextBox1
-            // 
-            maskedTextBox1.Location = new Point(640, 142);
-            maskedTextBox1.Mask = "00-0-0000";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(156, 23);
-            maskedTextBox1.TabIndex = 32;
-            // 
-            // maskedTextBox3
-            // 
-            maskedTextBox3.Location = new Point(861, 144);
-            maskedTextBox3.Mask = "00-0-0000";
-            maskedTextBox3.Name = "maskedTextBox3";
-            maskedTextBox3.Size = new Size(124, 23);
-            maskedTextBox3.TabIndex = 34;
-            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -250,22 +239,36 @@
             label8.TabIndex = 35;
             label8.Text = "FECHA ENTREG.";
             // 
+            // dateTimeStarDate
+            // 
+            dateTimeStarDate.Location = new Point(630, 144);
+            dateTimeStarDate.Name = "dateTimeStarDate";
+            dateTimeStarDate.Size = new Size(182, 23);
+            dateTimeStarDate.TabIndex = 36;
+            // 
+            // dateTimeDeliveryDate
+            // 
+            dateTimeDeliveryDate.Location = new Point(832, 144);
+            dateTimeDeliveryDate.Name = "dateTimeDeliveryDate";
+            dateTimeDeliveryDate.Size = new Size(182, 23);
+            dateTimeDeliveryDate.TabIndex = 37;
+            // 
             // FormGestionarTareas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PowderBlue;
             ClientSize = new Size(1315, 659);
+            Controls.Add(dateTimeDeliveryDate);
+            Controls.Add(dateTimeStarDate);
             Controls.Add(label8);
-            Controls.Add(maskedTextBox3);
-            Controls.Add(maskedTextBox1);
             Controls.Add(label7);
-            Controls.Add(comboBox1);
+            Controls.Add(StatusBox);
             Controls.Add(label6);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtIdResponsableBox);
+            Controls.Add(txtIdProyectoBox);
+            Controls.Add(txtDescriptionBox);
+            Controls.Add(txtNameBox);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -279,6 +282,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormGestionarTareas";
             Text = "Gestionar Tareas";
+            Load += FormGestionarTareas_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
@@ -297,16 +301,16 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox txtNameBox;
+        private TextBox txtDescriptionBox;
+        private TextBox txtIdProyectoBox;
+        private TextBox txtIdResponsableBox;
         private Label label6;
-        private ComboBox comboBox1;
+        private ComboBox StatusBox;
         private ErrorProvider errorProvider1;
         private Label label7;
-        private MaskedTextBox maskedTextBox1;
-        private MaskedTextBox maskedTextBox3;
         private Label label8;
+        private DateTimePicker dateTimeStarDate;
+        private DateTimePicker dateTimeDeliveryDate;
     }
 }
