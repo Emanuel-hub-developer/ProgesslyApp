@@ -52,7 +52,7 @@
             // buttonVolver
             // 
             buttonVolver.BackColor = Color.Lavender;
-            buttonVolver.Location = new Point(1112, 466);
+            buttonVolver.Location = new Point(1026, 474);
             buttonVolver.Margin = new Padding(4);
             buttonVolver.Name = "buttonVolver";
             buttonVolver.Size = new Size(190, 39);
@@ -144,16 +144,16 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(65, 231);
+            dataGridView1.Location = new Point(146, 250);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1037, 353);
+            dataGridView1.Size = new Size(792, 342);
             dataGridView1.TabIndex = 12;
             dataGridView1.CellContentClick += dataGridView1_CellClick;
             // 
             // button1
             // 
             button1.BackColor = Color.FromArgb(128, 255, 128);
-            button1.Location = new Point(1108, 252);
+            button1.Location = new Point(1022, 261);
             button1.Name = "button1";
             button1.Size = new Size(194, 38);
             button1.TabIndex = 13;
@@ -164,7 +164,7 @@
             // button2
             // 
             button2.BackColor = Color.FromArgb(255, 255, 128);
-            button2.Location = new Point(1108, 323);
+            button2.Location = new Point(1018, 330);
             button2.Name = "button2";
             button2.Size = new Size(194, 37);
             button2.TabIndex = 14;
@@ -175,7 +175,7 @@
             // button3
             // 
             button3.BackColor = Color.FromArgb(255, 128, 128);
-            button3.Location = new Point(1108, 390);
+            button3.Location = new Point(1022, 395);
             button3.Name = "button3";
             button3.Size = new Size(194, 41);
             button3.TabIndex = 15;
