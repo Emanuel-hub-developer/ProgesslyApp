@@ -81,7 +81,7 @@ namespace WinFormsProgessly
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error al actualizar el responsable: {ex.Message}");
+                    MessageBox.Show($"Error al actualizar el responsable: {ex.Message}");
                 }
                 
                 MessageBox.Show("Responsable Actualizado Exitosamente!");
@@ -109,7 +109,7 @@ namespace WinFormsProgessly
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al crear el responsable: {ex.Message}");
+                MessageBox.Show($"Error al crear el responsable: {ex.Message}");
             }
          
 
@@ -184,7 +184,7 @@ namespace WinFormsProgessly
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"Error al eliminar el responsable: {ex.Message}");
+                        MessageBox.Show($"Error al eliminar el responsable: {ex.Message}");
                     }
 
                     MessageBox.Show("Responsable Eliminado Exitosamente");

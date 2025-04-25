@@ -93,7 +93,7 @@ namespace WinFormsProgessly
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al crear la tarea: {ex.Message}");
+                MessageBox.Show($"Error al crear la tarea: {ex.Message}");
             }
 
             MessageBox.Show("Tarea Creada Exitosamente!");
@@ -172,7 +172,7 @@ namespace WinFormsProgessly
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al actualizar la tarea: {ex.Message}");
+                MessageBox.Show($"Error al actualizar la tarea: {ex.Message}");
             }
 
             MessageBox.Show("Tarea actualizada exitosamente!");
@@ -198,7 +198,7 @@ namespace WinFormsProgessly
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"Error al eliminar la tarea: {ex.Message}");
+                        MessageBox.Show($"Error al eliminar la tarea: {ex.Message}");
                     }
 
                     LoadTareaFromDb(); 

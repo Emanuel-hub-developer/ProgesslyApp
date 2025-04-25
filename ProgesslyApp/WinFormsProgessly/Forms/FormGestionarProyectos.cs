@@ -76,7 +76,7 @@ namespace WinFormsProgessly
                 _projectService.AddProject(nuevo);
             } catch (Exception ex)
             {
-                Console.WriteLine($"Error al crear un proyecto: {ex.Message}");
+                MessageBox.Show($"Error al crear un proyecto: {ex.Message}");
             }
           
 
@@ -164,7 +164,7 @@ namespace WinFormsProgessly
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al actualizar el proyecto: {ex.Message}");
+                MessageBox.Show($"Error al actualizar el proyecto: {ex.Message}");
             }
            
 
@@ -190,7 +190,7 @@ namespace WinFormsProgessly
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"Error al eliminar el proyecto: {ex.Message}");
+                        MessageBox.Show($"Error al eliminar el proyecto: {ex.Message}");
                     }
                     LoadProjectFromDb();
 
