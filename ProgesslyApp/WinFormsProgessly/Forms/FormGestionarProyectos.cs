@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using WinFormsProgessly.Data;
+﻿using WinFormsProgessly.Data;
 using WinFormsProgessly.Entities;
 using WinFormsProgessly.Helpers;
 using WinFormsProgessly.Services;
@@ -79,8 +70,15 @@ namespace WinFormsProgessly
                 idResponsable = int.Parse(textIdResponsable.Text),
                 Status = (StatusProject)Enum.Parse(typeof(StatusProject), StatusBox.SelectedItem.ToString())
             };
-
-            _projectService.AddProject(nuevo);
+            
+            try
+            {
+                _projectService.AddProject(nuevo);
+            } catch (Exception ex)
+            {
+                Console.WriteLine($"Error al crear un proyecto: {ex.Message}");
+            }
+          
 
             MessageBox.Show("Proyecto Creado Exitosamente!");
 
@@ -160,7 +158,15 @@ namespace WinFormsProgessly
 
             project.Status = (StatusProject)Enum.Parse(typeof(StatusProject), StatusBox.SelectedItem.ToString());
 
-            _projectService.UpdateProject(project);
+            try
+            {
+                _projectService.UpdateProject(project);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al actualizar el proyecto: {ex.Message}");
+            }
+           
 
             MessageBox.Show("Proyecto actualizado exitosamente!");
 
@@ -178,7 +184,14 @@ namespace WinFormsProgessly
                 var confirm = MessageBox.Show("¿Estas seguro de que deseas eliminar este proyecto?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (confirm == DialogResult.Yes)
                 {
-                    _projectService.DeleteProject(project.Id);
+                    try
+                    {
+                        _projectService.DeleteProject(project.Id);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error al eliminar el proyecto: {ex.Message}");
+                    }
                     LoadProjectFromDb();
 
                 }

@@ -86,7 +86,15 @@ namespace WinFormsProgessly
                 Status = (EstadoTarea)Enum.Parse(typeof(EstadoTarea), StatusBox.SelectedItem.ToString())
             };
 
-            _tareaService.AddTarea(nueva);
+
+            try
+            {
+                _tareaService.AddTarea(nueva);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al crear la tarea: {ex.Message}");
+            }
 
             MessageBox.Show("Tarea Creada Exitosamente!");
 
@@ -158,7 +166,14 @@ namespace WinFormsProgessly
             tarea.idProject = int.Parse(txtIdProyectoBox.Text);
             tarea.Status = (EstadoTarea)Enum.Parse(typeof(EstadoTarea), StatusBox.SelectedItem.ToString());
 
-            _tareaService.UpdateTarea(tarea);
+            try
+            {
+                _tareaService.UpdateTarea(tarea);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al actualizar la tarea: {ex.Message}");
+            }
 
             MessageBox.Show("Tarea actualizada exitosamente!");
 
@@ -177,7 +192,15 @@ namespace WinFormsProgessly
                 var confirm = MessageBox.Show("¿Estas seguro de que deseas eliminar esta tarea?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (confirm == DialogResult.Yes)
                 {
-                    _tareaService.DeleteTarea(tarea.Id); 
+                    try
+                    {
+                        _tareaService.DeleteTarea(tarea.Id);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error al eliminar la tarea: {ex.Message}");
+                    }
+
                     LoadTareaFromDb(); 
                
                 }

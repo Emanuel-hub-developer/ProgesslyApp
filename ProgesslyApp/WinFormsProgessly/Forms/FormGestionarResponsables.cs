@@ -75,9 +75,15 @@ namespace WinFormsProgessly
                 responsable.Email = txtEmail.Text;
                 responsable.Telephone = maskedTextBox1.Text;
 
-                _responsableService.UpdateResponsable(responsable);
-
-
+                try
+                {
+                    _responsableService.UpdateResponsable(responsable);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error al actualizar el responsable: {ex.Message}");
+                }
+                
                 MessageBox.Show("Responsable Actualizado Exitosamente!");
 
 
@@ -96,9 +102,16 @@ namespace WinFormsProgessly
                 Telephone = maskedTextBox1.Text,
 
             };
-            _responsableService.AddResponsable(nuevoResponsable);
 
-            
+            try
+            {
+                _responsableService.AddResponsable(nuevoResponsable);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al crear el responsable: {ex.Message}");
+            }
+         
 
             MessageBox.Show("Responsable Creado Exitosamente!");
 
@@ -165,7 +178,15 @@ namespace WinFormsProgessly
                 var confirm = MessageBox.Show("¿Estas seguro de que deseas eliminar este/a responsable?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (confirm == DialogResult.Yes)
                 {
-                    _responsableService.DeleteResponsable(responsable.Id);
+                    try
+                    {
+                        _responsableService.DeleteResponsable(responsable.Id);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error al eliminar el responsable: {ex.Message}");
+                    }
+
                     MessageBox.Show("Responsable Eliminado Exitosamente");
                     LoadResponsableFromDb();
 

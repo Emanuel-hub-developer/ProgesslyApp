@@ -70,7 +70,7 @@
             label1.Location = new Point(295, 34);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(681, 45);
+            label1.Size = new Size(1023, 65);
             label1.TabIndex = 1;
             label1.Text = "BIENVENIDO/A AL GESTOR DE RESPONSABLES";
             // 
@@ -81,7 +81,7 @@
             label2.Location = new Point(146, 128);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(112, 32);
+            label2.Size = new Size(167, 48);
             label2.TabIndex = 2;
             label2.Text = "NOMBRE";
             // 
@@ -91,7 +91,7 @@
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.Location = new Point(371, 128);
             label3.Name = "label3";
-            label3.Size = new Size(117, 32);
+            label3.Size = new Size(177, 48);
             label3.TabIndex = 3;
             label3.Text = "APELLIDO";
             label3.Click += label3_Click;
@@ -102,7 +102,7 @@
             label4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.Location = new Point(583, 128);
             label4.Name = "label4";
-            label4.Size = new Size(80, 32);
+            label4.Size = new Size(120, 48);
             label4.TabIndex = 4;
             label4.Text = "EMAIL";
             label4.Click += label4_Click;
@@ -113,7 +113,7 @@
             label6.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.Location = new Point(788, 128);
             label6.Name = "label6";
-            label6.Size = new Size(128, 32);
+            label6.Size = new Size(191, 48);
             label6.TabIndex = 6;
             label6.Text = "TELEFONO";
             // 
@@ -121,7 +121,7 @@
             // 
             txtName.Location = new Point(124, 178);
             txtName.Name = "txtName";
-            txtName.Size = new Size(159, 29);
+            txtName.Size = new Size(159, 39);
             txtName.TabIndex = 7;
             txtName.TextChanged += textBox1_TextChanged;
             // 
@@ -129,7 +129,7 @@
             // 
             txtLastname.Location = new Point(350, 178);
             txtLastname.Name = "txtLastname";
-            txtLastname.Size = new Size(159, 29);
+            txtLastname.Size = new Size(159, 39);
             txtLastname.TabIndex = 8;
             txtLastname.TextChanged += textBox2_TextChanged;
             // 
@@ -137,7 +137,7 @@
             // 
             txtEmail.Location = new Point(542, 178);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(159, 29);
+            txtEmail.Size = new Size(159, 39);
             txtEmail.TabIndex = 9;
             txtEmail.TextChanged += txtEmail_TextChanged;
             // 
@@ -146,7 +146,8 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(146, 250);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(792, 342);
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(809, 556);
             dataGridView1.TabIndex = 12;
             dataGridView1.CellContentClick += dataGridView1_CellClick;
             // 
@@ -192,13 +193,13 @@
             maskedTextBox1.Location = new Point(767, 178);
             maskedTextBox1.Mask = "000-000-0000";
             maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(160, 29);
+            maskedTextBox1.Size = new Size(160, 39);
             maskedTextBox1.TabIndex = 16;
             maskedTextBox1.MaskInputRejected += maskedTextBox1_MaskInputRejected;
             // 
             // FormGestionarResponsables
             // 
-            AutoScaleDimensions = new SizeF(9F, 21F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PowderBlue;
             ClientSize = new Size(1698, 931);
